@@ -6,7 +6,6 @@ export const windowHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignItems: 'center'
   },
 
   formTitle: {
@@ -54,8 +53,9 @@ export const styles = StyleSheet.create({
   },
 
   unitCheckBox: {
-    marginHorizontal: (windowWidth / 1.1 - 3 * windowWidth / 3.6) / 4,
-    width: windowWidth / 3.6,
+    marginHorizontal: (windowWidth / 1.1 - 3 * windowWidth / 3.6) / 2,
+    marginVertical: 5,
+    width: windowWidth / 3,
     height: 40,
     borderRadius: 10,
     borderWidth: 3,
@@ -113,5 +113,50 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     color: 'white',
     fontWeight: 'bold'
-  }
+  },
+
+  modal: {
+    alignItems: 'center'
+  },
+
+  modalInputLabelContainer: {
+    marginBottom: 10,
+    height: 45,
+    width: windowWidth / 1.4,
+    backgroundColor: '#003c6c',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15,
+  },
+
+  modalInputLabel: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: '300',
+  },
+
+  modalInput: {
+    padding: 10,
+    height: 70,
+    width: windowWidth / 1.4,
+    marginBottom: 20,
+    borderWidth: 4,
+    borderRadius: 15,
+    backgroundColor: 'white'
+  },
+
+  modalButton: {
+    width: windowWidth / 1.4 / 2.3,
+    height: 50,
+    borderRadius: 30,
+    marginHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  modalButtonText: {
+    fontSize: 22,
+    color: 'white',
+    fontWeight: '300'
+  },
 })

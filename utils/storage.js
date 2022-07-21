@@ -36,9 +36,9 @@ const storeData = async (key, data) => {
   try {
     const jsonValue = JSON.stringify(data);
     await AsyncStorage.setItem(key, jsonValue);
-    console.log('SUCCESS: Stored', data, 'with \"' + key.toString() + '\" as key.')
+    // console.log('SUCCESS: Stored', data, 'with \"' + key.toString() + '\" as key.')
   } catch (e) {
-    console.log('ERROR: Something goes wrong when storing data :(')
+    // console.log('ERROR: Something goes wrong when storing data :(')
   }
 };
 

@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useFonts } from 'expo-font';
 import Details from './pages/Details';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -44,15 +45,18 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='tab' component={BottomTab} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name='详细信息' component={Details} options={{
-          headerShown: false
-        }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='tab' component={BottomTab} options={{
+            headerShown: false
+          }} />
+          <Stack.Screen name='详细信息' component={Details} options={{
+            headerShown: false
+          }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Toast />
+    </>
   );
 }

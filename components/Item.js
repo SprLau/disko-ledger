@@ -35,8 +35,13 @@ export default function Item(props) {
 }
 
 function short(str, fontSize) {
+  let containEnter = false;
+  const split = str.split('\n');
+  if (str.split('\n').length > 1) {
+    containEnter = true;
+  }
   const maxLength = Math.floor(windowWidth / 1.8 / fontSize * (6 / 7));
-  return str.length > maxLength ? str.substr(0, maxLength) + '...' : str;
+  return (split[0].length > maxLength ? split[0].substr(0, maxLength) + (containEnter ? '' : '...') : split[0]) + (containEnter ? '...' : '');
 }
 
 function Info(props) {
