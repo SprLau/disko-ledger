@@ -2,8 +2,10 @@ import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Item from '../components/Item';
 import { styles } from '../styles';
 import { useState } from 'react';
-import { fetchAll, useAsyncResult } from '../utils/storage';
+import { fetchAll, fetchAllRaw, useAsyncResult } from '../utils/storage';
 import Divider from 'react-native-divider';
+import ExportDataButton from '../components/ExportDataButton';
+import UploadDataButton from '../components/UploadDataButton';
 
 function UnitCheckBox(props) {
   return (
@@ -68,6 +70,7 @@ function makeClusters(content, unit) {
 
 export default function ViewAll() {
   const content = useAsyncResult(fetchAll, []);
+  const rawData = useAsyncResult(fetchAllRaw, []);
   const monthAsUnit = '_DAY';
   const yearAsUnit = '_MONTH';
   const [unit, setUnit] = useState(monthAsUnit);
@@ -81,6 +84,8 @@ export default function ViewAll() {
         <UnitCheckBox label={'每年'} bgColor={unit === yearAsUnit ? '#FFCCD4' : 'transparent'} onPress={() => {
           setUnit(yearAsUnit)
         }} />
+        <UploadDataButton />
+        <ExportDataButton content={rawData} />
         <UnitCheckBox label={'每月'} bgColor={unit === monthAsUnit ? '#FFCCD4' : 'transparent'} onPress={() => {
           setUnit(monthAsUnit)
         }} />
@@ -89,6 +94,7 @@ export default function ViewAll() {
       <ScrollView>
         {makeClusters(content, unit)}
       </ScrollView>
+
     </View>
   )
 }

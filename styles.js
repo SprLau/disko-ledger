@@ -159,4 +159,18 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '300'
   },
+
+  exportDataButton: {
+    height: 40,
+    width: windowWidth / 12,
+    backgroundColor: '#ffdc99',
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: 'white',
+    marginVertical: 5,
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: windowWidth / 130,
+  }
 })

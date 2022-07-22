@@ -12,6 +12,16 @@ async function fetchAll() {
   return res;
 }
 
+async function fetchAllRaw() {
+  const keys = await AsyncStorage.getAllKeys();
+  const res = [];
+  for (const key of keys) {
+    const t = await AsyncStorage.getItem(key);
+    res.push(t.toString());
+  }
+  return res;
+}
+
 async function editData(key, content) {
   await AsyncStorage.mergeItem(key, JSON.stringify(content));
 }
@@ -44,6 +54,7 @@ const storeData = async (key, data) => {
 
 export {
   fetchAll,
+  fetchAllRaw,
   editData,
   deleteDate,
   useAsyncResult,
